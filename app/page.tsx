@@ -1,71 +1,12 @@
-'use client';
-
-import {
-  ArrowUpRight,
-  GraduationCap,
-  Mail,
-  Menu,
-  Moon,
-  Sun,
-  X,
-} from 'lucide-react';
-import { useEffect, useState } from 'react';
-import { education, navItems, profile } from './content';
+import { ArrowUpRight, BookOpen, GraduationCap, Mail } from 'lucide-react';
+import { SiteHeader } from '@/components/site-header';
+import { education, profile } from './content';
+import { publishedPosts } from './blog/posts';
 
 export default function Home() {
-  const [dark, setDark] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const stored = window.localStorage.getItem('theme');
-    const next = stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches);
-    setDark(next);
-    document.documentElement.classList.toggle('dark', next);
-  }, []);
-
-  const toggleTheme = () => {
-    const next = !dark;
-    setDark(next);
-    document.documentElement.classList.toggle('dark', next);
-    window.localStorage.setItem('theme', next ? 'dark' : 'light');
-  };
-
   return (
     <main>
-      <header className="site-header">
-        <div className="shell flex h-[72px] items-center justify-between">
-          <a href="#top" className="brand" aria-label="返回首页顶部">
-            <span className="brand-mark">{profile.initials}</span>
-            <span>{profile.nameZh}</span>
-          </a>
-
-          <nav className="hidden items-center gap-8 md:flex" aria-label="主导航">
-            {navItems.map((item) => <a key={item.href} href={item.href} className="nav-link">{item.label}</a>)}
-            <button className="icon-button" onClick={toggleTheme} aria-label={dark ? '切换至浅色模式' : '切换至深色模式'}>
-              {dark ? <Sun size={18} /> : <Moon size={18} />}
-            </button>
-          </nav>
-
-          <div className="flex items-center gap-2 md:hidden">
-            <button className="icon-button" onClick={toggleTheme} aria-label={dark ? '切换至浅色模式' : '切换至深色模式'}>
-              {dark ? <Sun size={18} /> : <Moon size={18} />}
-            </button>
-            <button className="icon-button" onClick={() => setMenuOpen((value) => !value)} aria-expanded={menuOpen} aria-controls="mobile-menu" aria-label="打开导航菜单">
-              {menuOpen ? <X size={20} /> : <Menu size={20} />}
-            </button>
-          </div>
-        </div>
-
-        {menuOpen && (
-          <nav id="mobile-menu" className="mobile-menu" aria-label="移动端导航">
-            {navItems.map((item, index) => (
-              <a key={item.href} href={item.href} onClick={() => setMenuOpen(false)}>
-                <span>0{index + 1}</span>{item.label}
-              </a>
-            ))}
-          </nav>
-        )}
-      </header>
+      <SiteHeader />
 
       <section id="top" className="shell hero scroll-mt-24">
         <div className="hero-copy">
@@ -116,6 +57,23 @@ export default function Home() {
               </div>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section id="blog" className="shell section-grid scroll-mt-24">
+        <div className="section-label"><span>03</span><p>最新文章</p></div>
+        <div className="section-content">
+          <div className="notes-heading"><p>记录正在形成的想法</p><BookOpen size={21} /></div>
+          <div className="notes-list">
+            {publishedPosts.slice(0, 3).map((post) => (
+              <a href={`/blog/${post.slug}.html`} key={post.slug}>
+                <time dateTime={post.date}>{post.date.slice(5).replace('-', '.')}</time>
+                <h3>{post.title}</h3>
+                <span>{post.readingTime}</span>
+              </a>
+            ))}
+          </div>
+          <a className="all-posts-link" href="/blog.html">查看全部文章 <ArrowUpRight size={16} /></a>
         </div>
       </section>
 

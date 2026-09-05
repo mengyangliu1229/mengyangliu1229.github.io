@@ -23,9 +23,10 @@ export const profile = {
 };
 
 export const navItems = [
-  { label: '关于', href: '#about' },
-  { label: '教育', href: '#education' },
-  { label: '联系', href: '#contact' },
+  { label: '关于', href: '/#about' },
+  { label: '教育', href: '/#education' },
+  { label: '博客', href: '/blog.html' },
+  { label: '联系', href: '/#contact' },
 ];
 
 export const education = [
