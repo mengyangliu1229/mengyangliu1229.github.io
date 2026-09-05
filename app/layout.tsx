@@ -4,7 +4,7 @@ import { profile } from './content';
 
 export const metadata: Metadata = {
   title: `${profile.nameZh}｜个人主页`,
-  description: `${profile.nameZh}的个人主页：研究、项目、写作与近期动态。`,
+  description: `中国人民大学本科三年级学生${profile.nameZh}的个人主页。`,
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

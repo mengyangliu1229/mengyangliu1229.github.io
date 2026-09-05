@@ -1,74 +1,38 @@
 /**
- * 个人主页内容配置
- *
- * 把这个文件里的示例文字替换为你的真实信息即可；页面结构和样式无需修改。
+ * 刘梦阳的个人主页内容配置。
+ * 后续增加研究方向、项目、论文或个人链接时，只需编辑这个文件。
  */
 export const profile = {
-  nameZh: '你的名字',
-  nameEn: 'Your Name',
-  initials: 'N',
-  roles: 'RESEARCHER · BUILDER · WRITER',
-  intro: '我关注技术、知识与人的交汇，喜欢把复杂问题拆开研究，再将答案做成清晰、有用的产品与文字。',
-  currentRole: '独立研究者 / 创作者',
-  location: '中国 · 可远程协作',
-  focus: 'AI × Knowledge × People',
-  email: 'hello@example.com',
-  githubUrl: 'https://github.com/',
-  blogUrl: '#notes',
-  aboutLead: '我的工作横跨研究、产品与写作，尤其关心技术如何真正改善人的学习、思考与创造。',
+  nameZh: '刘梦阳',
+  nameEn: 'Mengyang Liu',
+  initials: 'MY',
+  roles: 'UNDERGRADUATE · RENMIN UNIVERSITY OF CHINA',
+  intro: '中国人民大学本科三年级学生。这里用于介绍我的学习经历，并记录未来的项目、实践与思考。',
+  currentRole: '本科三年级学生',
+  institution: '中国人民大学',
+  location: '中国 · 北京',
+  email: '2024201890@ruc.edu.cn',
+  aboutLead: '目前就读于中国人民大学，是一名大三学生。',
   about: [
-    '我相信好的研究不仅要有新意，也要能够被解释、被复现，并最终与真实世界发生联系。我习惯从一手资料出发，在理论与实践之间来回验证。',
-    '工作之外，我持续阅读、写作与构建小工具。这里收录我的阶段性工作，也记录那些尚未完成、但值得继续追问的问题。',
+    '我正在持续学习，并逐步整理课程之外的实践、阅读与思考。',
+    '这个主页将作为长期更新的个人空间，用于沉淀经历，也方便与老师、同学和未来的合作者保持联系。',
   ],
-  contactHeading: '有一个值得一起研究的问题？',
-  contactText: '欢迎交流研究想法、项目合作，或只是分享一篇有意思的文章。',
-  footerMotto: '保持好奇，持续构建。',
+  contactHeading: '欢迎与我联系',
+  contactText: '如果你想交流学习、项目或其他有趣的话题，欢迎通过邮件联系我。',
+  footerMotto: '认真学习，保持好奇。',
 };
 
 export const navItems = [
   { label: '关于', href: '#about' },
-  { label: '动态', href: '#news' },
-  { label: '工作', href: '#work' },
-  { label: '笔记', href: '#notes' },
+  { label: '教育', href: '#education' },
+  { label: '联系', href: '#contact' },
 ];
 
-export const interests = ['人工智能', '数据科学', '人机交互', '开放知识'];
-
-export const news = [
-  { date: '2026.08', text: '开始了一段新的研究与创作计划，持续记录问题、方法与阶段性答案。' },
-  { date: '2026.05', text: '完成项目「知识工作流」的第一版，并将核心方法整理为公开笔记。' },
-  { date: '2026.02', text: '分享了一次关于 AI 工具、研究习惯与长期积累的主题报告。' },
-];
-
-export const works = [
+export const education = [
   {
-    index: '01',
-    type: 'RESEARCH · 2026',
-    title: '从复杂信息到清晰洞见',
-    summary: '探索如何把分散资料组织为可验证、可复用的知识结构，并在真实研究任务中评估效果。',
-    tags: ['知识管理', '信息检索'],
-    href: '#contact',
+    period: '2024 — 至今',
+    school: '中国人民大学',
+    degree: '本科在读 · 大三',
+    description: '持续积累专业知识，并探索值得长期投入的学习与实践方向。',
   },
-  {
-    index: '02',
-    type: 'PROJECT · 2026',
-    title: '面向个人研究的智能工作台',
-    summary: '一个帮助研究者收集线索、梳理证据并推进写作的轻量系统，强调透明过程与人的判断。',
-    tags: ['AI 工具', '产品设计'],
-    href: '#contact',
-  },
-  {
-    index: '03',
-    type: 'ESSAY · 2025',
-    title: '慢思考与快工具',
-    summary: '讨论工具速度不断提高之后，如何保留独立判断、问题意识与长期主义。',
-    tags: ['写作', '方法论'],
-    href: '#notes',
-  },
-];
-
-export const notes = [
-  { date: '08.24', title: '研究不是寻找答案，而是逐步改善问题', category: '方法', href: '#contact' },
-  { date: '07.16', title: '把日常阅读变成可复用的知识资产', category: '笔记', href: '#contact' },
-  { date: '06.03', title: '我如何设计一个长期项目的反馈循环', category: '实践', href: '#contact' },
 ];

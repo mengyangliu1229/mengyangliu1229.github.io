@@ -2,8 +2,7 @@
 
 import {
   ArrowUpRight,
-  BookOpen,
-  Code2,
+  GraduationCap,
   Mail,
   Menu,
   Moon,
@@ -11,7 +10,7 @@ import {
   X,
 } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import { interests, navItems, news, notes, profile, works } from './content';
+import { education, navItems, profile } from './content';
 
 export default function Home() {
   const [dark, setDark] = useState(false);
@@ -75,7 +74,7 @@ export default function Home() {
           <p className="hero-intro">{profile.intro}</p>
           <div className="hero-actions">
             <a href={`mailto:${profile.email}`} className="primary-link"><Mail size={17} /> 与我联系</a>
-            <a href="#work" className="text-link">查看精选工作 <ArrowUpRight size={16} /></a>
+            <a href="#education" className="text-link">了解我的经历 <ArrowUpRight size={16} /></a>
           </div>
         </div>
 
@@ -88,8 +87,8 @@ export default function Home() {
 
         <div className="hero-meta">
           <div><span>现在</span><p>{profile.currentRole}</p></div>
+          <div><span>学校</span><p>{profile.institution}</p></div>
           <div><span>坐标</span><p>{profile.location}</p></div>
-          <div><span>关注</span><p>{profile.focus}</p></div>
         </div>
       </section>
 
@@ -100,42 +99,23 @@ export default function Home() {
           <div className="about-columns">
             {profile.about.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
           </div>
-          <div className="interest-row" aria-label="关注领域">{interests.map((interest) => <span key={interest}>{interest}</span>)}</div>
         </div>
       </section>
 
-      <section id="news" className="shell section-grid scroll-mt-24">
-        <div className="section-label"><span>02</span><p>近期动态</p></div>
-        <div className="section-content news-list">
-          {news.map((item) => <article key={item.date}><time>{item.date}</time><p>{item.text}</p></article>)}
-        </div>
-      </section>
-
-      <section id="work" className="shell section-grid scroll-mt-24">
-        <div className="section-label"><span>03</span><p>精选工作</p></div>
-        <div className="section-content work-list">
-          {works.map((work) => (
-            <a className="work-card" key={work.index} href={work.href}>
-              <div className="work-number">{work.index}</div>
+      <section id="education" className="shell section-grid scroll-mt-24">
+        <div className="section-label"><span>02</span><p>教育经历</p></div>
+        <div className="section-content education-list">
+          {education.map((item) => (
+            <article key={item.school} className="education-card">
+              <div className="education-icon" aria-hidden="true"><GraduationCap size={23} /></div>
               <div>
-                <p className="work-type">{work.type}</p>
-                <h2>{work.title}</h2>
-                <p className="work-summary">{work.summary}</p>
-                <div className="work-tags">{work.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+                <time>{item.period}</time>
+                <h2>{item.school}</h2>
+                <p className="education-degree">{item.degree}</p>
+                <p className="education-description">{item.description}</p>
               </div>
-              <ArrowUpRight className="work-arrow" size={21} />
-            </a>
+            </article>
           ))}
-        </div>
-      </section>
-
-      <section id="notes" className="shell section-grid scroll-mt-24">
-        <div className="section-label"><span>04</span><p>近期笔记</p></div>
-        <div className="section-content">
-          <div className="notes-heading"><p>记录正在形成的想法</p><BookOpen size={21} /></div>
-          <div className="notes-list">
-            {notes.map((note) => <a href={note.href} key={note.title}><time>{note.date}</time><h3>{note.title}</h3><span>{note.category}</span></a>)}
-          </div>
         </div>
       </section>
 
@@ -145,10 +125,6 @@ export default function Home() {
           <h2>{profile.contactHeading}</h2>
           <p>{profile.contactText}</p>
           <a href={`mailto:${profile.email}`} className="contact-email">{profile.email} <ArrowUpRight size={25} /></a>
-          <div className="social-links">
-            <a href={profile.githubUrl} target="_blank" rel="noreferrer"><Code2 size={18} /> GitHub</a>
-            <a href={profile.blogUrl}><BookOpen size={18} /> Blog</a>
-          </div>
         </div>
       </section>
 

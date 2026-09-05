@@ -110,6 +110,14 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--ring); outline-
 .news-list time { color: var(--accent); font-family: var(--font-display), sans-serif; font-size: .79rem; font-weight: 700; }
 .news-list p { margin: 0; font-size: 1rem; }
 
+.education-list { display: grid; gap: 16px; }
+.education-card { display: grid; grid-template-columns: 58px minmax(0, 1fr); gap: 22px; border: 1px solid var(--border); border-radius: 4px; background: var(--card); padding: 34px; }
+.education-icon { display: grid; width: 48px; height: 48px; place-items: center; border-radius: 50%; background: var(--muted); color: var(--accent); }
+.education-card time { color: var(--accent); font-family: var(--font-display), sans-serif; font-size: .76rem; font-weight: 700; letter-spacing: .06em; }
+.education-card h2 { margin: 6px 0 0; font-family: var(--font-display), var(--font-sans), sans-serif; font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 600; letter-spacing: -.035em; line-height: 1.3; }
+.education-degree { margin: 8px 0 0; font-weight: 600; }
+.education-description { max-width: 620px; margin: 14px 0 0; color: var(--muted-foreground); }
+
 .work-list { display: grid; gap: 14px; }
 .work-card { position: relative; display: grid; grid-template-columns: 46px minmax(0, 1fr) 28px; gap: 18px; overflow: hidden; border: 1px solid var(--border); border-radius: 4px; background: var(--card); padding: 31px 30px; transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease; }
 .work-card::before { position: absolute; top: 0; bottom: 0; left: 0; width: 3px; content: ''; background: var(--accent); transform: scaleY(0); transform-origin: bottom; transition: transform 180ms ease; }
@@ -164,6 +172,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--ring); outline-
   .hero h1 { font-size: clamp(3.15rem, 18vw, 5rem); }
   .hero-actions { align-items: flex-start; flex-direction: column; gap: 20px; }
   .news-list article { grid-template-columns: 1fr; gap: 5px; }
+  .education-card { grid-template-columns: 1fr; gap: 16px; padding: 25px 20px; }
   .work-card { grid-template-columns: 30px minmax(0, 1fr); gap: 12px; padding: 25px 18px; }
   .work-arrow { position: absolute; top: 24px; right: 18px; }
   .notes-list a { grid-template-columns: 58px 1fr; gap: 13px; }
